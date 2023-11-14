@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useStore } from 'effector-react'
 import { store } from '../store/store'
 import Loader from './Loader'
+import { Suspense } from 'react'
 
 export function ImagesBlock() {
     const { data, loading, error } = useStore(store)
@@ -13,14 +14,15 @@ export function ImagesBlock() {
     return (
         <div className="gap-2 grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
             {data?.results?.map((v, i) => (
-                <Image
-                    key={i}
-                    src={v?.urls?.regular}
-                    width={500}
-                    height={500}
-                    alt="search_image_item"
-                    className='aspect-square'
-                />
+                <Suspense key={i} fallback={<Loader />}>
+                    <Image
+                        src={v?.urls?.regular}
+                        width={500}
+                        height={500}
+                        alt="search_image_item"
+                        className='aspect-square'
+                    />
+                </Suspense>
             ))}
         </div>
     )
