@@ -5,7 +5,7 @@ import search from '@/app/assets/search.png'
 import cancel from '@/app/assets/cancel.png'
 import Image from 'next/image'
 
-export const Input = forwardRef(function Input(props, ref) {
+export const Input = forwardRef<HTMLInputElement>(function Input(props, ref) {
     const [value, setValue] = useState<string>("")
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
