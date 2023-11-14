@@ -8,13 +8,12 @@ import { fetchImagesEffect, store } from '../store/store';
 import { useRef } from 'react';
 
 export function Search() {
-    const ref = useRef(null);
+    const ref = useRef<HTMLInputElement>(null);
     const { loading, data } = useStore(store);
 
     const handleSearch = async () => {
-        //@ts-ignore
+
         if (ref?.current?.value) {
-            //@ts-ignore
             await fetchImagesEffect(ref.current.value)
         }
     }
