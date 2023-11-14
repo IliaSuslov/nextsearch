@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function Loader() {
+export default function Loader() {
     return (
         <div className="flex items-center justify-center h-[204px]">
             <div className="animate-spin">

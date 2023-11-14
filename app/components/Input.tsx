@@ -8,7 +8,7 @@ import Image from 'next/image'
 export function Input() {
     const [value, setValue] = useState<string>("")
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
 
