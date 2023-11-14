@@ -1,8 +1,9 @@
 import { createEffect, createEvent, createStore } from 'effector';
 
+
 const API = "https://api.unsplash.com/search/photos?client_id=Ip0XA55zY7b7-d19osq1L5btGg-YCeDZVpnnJjXqHxs&query="
 
-export const fetchImagesEffect = createEffect(async (keyword: string, pageNumber: number = 1, perPageNumber: number = 50) => {
+export const fetchImagesEffect = createEffect(async (keyword: string, pageNumber: number = 1, perPageNumber: number = 1000) => {
     const res = await fetch(`${API}${keyword}&page=${pageNumber}&per_page=${perPageNumber}`)
     return res.json()
 })
