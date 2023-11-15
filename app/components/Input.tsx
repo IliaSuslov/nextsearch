@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, forwardRef } from 'react'
 import search from '@/app/assets/search.png'
 import cancel from '@/app/assets/cancel.png'

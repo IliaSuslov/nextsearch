@@ -1,4 +1,3 @@
-//@ts-nocheck
 'use client'
 import Image from 'next/image'
 import { useStore } from 'effector-react'
@@ -12,25 +11,26 @@ export function ImagesBlock() {
     const [image, setImage] = useState("")
     const loaderRef = useRef(null);
 
-    const handleOpenImage = (image) => {
+    const handleOpenImage = (image: string) => {
         setImage(image)
     }
-    const handleObserver = (entries) => {
+
+    const handleObserver = (entries: IntersectionObserverEntry[]) => {
         const target = entries[0];
         if (target.isIntersecting && !isFetching) {
             setIsFetching(true);
-            loadMoreImagesEffect()
-                .finally(() => { setIsFetching(false) });
+            loadMoreImagesEffect().finally(() => { setIsFetching(false) });
         }
     };
+
     useEffect(() => {
-        let observer;
+        let observer: IntersectionObserver | null = null;
         const options = {
             root: null,
             rootMargin: "0px",
             threshold: 1.0
         };
-        if (data?.results?.length > 0) {
+        if (data.results && data.results.length > 0) {
             observer = new IntersectionObserver(handleObserver, options);
 
             if (loaderRef.current) {
@@ -49,7 +49,7 @@ export function ImagesBlock() {
     return (
         <div className="gap-2 grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 pb-4">
             {image && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start 2xl:items-center z-10" onClick={() => setImage()}>
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-start 2xl:items-center z-10" onClick={() => setImage("")}>
                     <div className="flex w-full justify-center z-20">
                         <Image
                             src={image}

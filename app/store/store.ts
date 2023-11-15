@@ -49,8 +49,6 @@ export const fetchImagesEffect = createEffect(
         return data
     })
 
-
-
 store.on(fetchImagesEffect, (state) => ({ ...state, loading: true, error: null }))
 store.on(fetchImagesEffect.done, (state, { result }) => ({ ...state, data: { ...result }, loading: false }))
 //@ts-ignore TODO: ??? почему возникает ошибка ???
