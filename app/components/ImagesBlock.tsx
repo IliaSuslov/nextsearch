@@ -25,13 +25,8 @@ export function ImagesBlock() {
 
     useEffect(() => {
         let observer: IntersectionObserver | null = null;
-        const options = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 1.0
-        };
         if (data.results && data.results.length > 0) {
-            observer = new IntersectionObserver(handleObserver, options);
+            observer = new IntersectionObserver(handleObserver);
 
             if (loaderRef.current) {
                 observer.observe(loaderRef.current);
