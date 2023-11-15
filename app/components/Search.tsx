@@ -4,7 +4,7 @@ import { Input } from './Input'
 import { Button } from './Button'
 import { twMerge } from 'tailwind-merge'
 import { useStore } from 'effector-react';
-import { fetchImagesEffect, store, updateKeyword } from '../store/store';
+import { fetchImagesEffect, store } from '../store/store';
 import { useRef } from 'react';
 
 export function Search() {
