@@ -21,7 +21,7 @@ export const store = createStore<IStore>({
 
 export const imagesDataStore = createStore<IImagesDataStore>({
     keyword: "",
-    page: 2,
+    page: 1,
     perPageNumber: 30,
     totalPages: null,
     total: null,
